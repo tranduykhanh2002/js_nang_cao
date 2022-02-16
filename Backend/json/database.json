@@ -1,0 +1,48 @@
+{
+    "users": [{
+        "id": "admin",
+        "name": "Nguyen Van A",
+        "email": "abc@gmail.com",
+        "password": "abc@gmail.com",
+        "token": "abc@gmail.com",
+        "role": "abc@gmail.com"
+    }],
+    "products": [{
+        "id": "admin",
+        "name": "Nguyen Van A",
+        "image": "abc@gmail.com",
+        "detail": "abc@gmail.com",
+        "price": "abc@gmail.com",
+        "id_cate": "abc@gmail.com",
+        "quantily": "abc@gmail.com",
+        "status": "abc@gmail.com"
+    }],
+    "contacts": [{
+        "id": "admin",
+        "content": "Nguyen Van A",
+        "email": "abc@gmail.com",
+        "id_user": "abc@gmail.com"
+    }],
+    "categories": [{
+        "id": "admin",
+        "name": "Nguyen Van A",
+        "status": "abc@gmail.com"
+    }],
+    "cart": [{
+        "id": "admin",
+        "id_user": "Nguyen Van A",
+        "id_products": "abc@gmail.com"
+    }],
+    "blogs": [{
+        "id": "admin",
+        "note": "Nguyen Van A",
+        "image": "abc@gmail.com",
+        "date": "abc@gmail.com"
+    }],
+    "adress": [{
+        "id": "admin",
+        "id_user": "Nguyen Van A",
+        "adress_detail": "abc@gmail.com",
+        "phone": "abc@gmail.com"
+    }]
+}
