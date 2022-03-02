@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Dashboard Template · Bootstrap v5.1</title>
+
+    <!-- <link href="./css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="./../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="" class="nav-link px-2 text-secondary">Trang Quản Trị </a></li>
+                    <li><a href="./index.html" class="nav-link px-2 text-white">Sản phẩm</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Danh mục</a></li>
+                    <li><a href="http://127.0.0.1:5500/asm_js/Backend/user/index.html" class="nav-link px-2 text-white">Tài khoản</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="" class="nav-link px-2 text-secondary">Trang Chủ </a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </header>
+    <form action="">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="mt-5">
+                        <h3 class="text-center">Tạo mới sản phẩm</h3>
+                        <div class="form-group">
+                            <label for="">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ảnh</label>
+                            <input type="file" class="form-control" onchange="previewFile()" id="image" name="image"> <br>
+                            <img src="" id="image_preview" height="200" alt="Anh">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Giá sản phẩm</label>
+                            <input type="text" class="form-control" name="price">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Mô tả sản phẩm</label>
+                            <input type="text" class="form-control" name="detail">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Số lượng</label>
+                            <input type="text" class="form-control" name="quantily">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Trạng thái</label>
+                            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example" name="status" id="status">
+                                <option value="Ẩn">Ẩn</option>
+                                <option value="Hiện">Hiện</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" name="status"> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="">Thuộc danh mục</label>
+                            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example" name="id_cate" id="id_cate">
+                                <option name="categories" value=""></option>
+                            </select>
+                            <!-- <label for="">Thuộc danh mục</label>
+                            <input type="text" class="form-control" name="id_cate"> -->
+                        </div>
+                        <div class="mt-3 d-flex justify-content-center">
+                            <button type="button" onclick="SaveNew()" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        function previewFile() {
+            const preview = document.querySelector('#image_preview')
+            const file = document.querySelector('#image').files[0]
+            const reader = new FileReader()
+            reader.addEventListener("load", function() {
+                preview.src = reader.result
+            }, false)
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            console.log(file);
+        }
+
+        function SaveNew() {
+            //1. Lấy dữ liệu
+            var n = document.querySelector("input[name=username]").value;
+            var i = document.querySelector('#image_preview').getAttribute('src');
+            var d = document.querySelector("input[name=detail]").value;
+            var p = document.querySelector("input[name=price]").value;
+            var c = document.querySelector("select[name=id_cate]").value;
+            var q = document.querySelector("input[name=quantily]").value;
+            var s = document.querySelector("select[name=status]").value;
+            if (n.length == 0) {
+                alert('Bạn cần nhập username');
+                return false;
+            }
+            if (i.length == 0) {
+                alert('File ảnh không được để trống')
+                return false;
+            }
+            if (d.length == 00) {
+                alert("Mô tả không dược để trống")
+                return false
+            }
+            if (p.length == 0) {
+                alert("Giá sản phẩm không được để trống")
+                return false
+            }
+            if (q.length == 0) {
+                alert("Só lượng sản phẩm không được để trống")
+                return false
+            }
+            // var datapost = {
+            //     urldb = "http://localhost:3000/products",
+            //     method: 'post',
+            //     data: {
+            //         name: n,
+            //         image: i,
+            //         detail: d,
+            //         price: Number(p),
+            //         id_cate: c,
+            //         quantily: q,
+            //         status: s
+            //     }
+
+            // }
+            // axios(datapost)
+            //     .then(function(data_res) {
+            //         if (data_res.status == 201) {
+            //             alert('Them san pham thanh cong')
+            //         }
+            //     })
+            //     .catch(function(ex) {
+            //         console.log(ex);
+            //     })
+            var dataPost = {
+                name: n,
+                image: i,
+                detail: d,
+                price: p,
+                id_cate: c,
+                quantily: q,
+                status: s
+            };
+            console.log(dataPost);
+            var url = "http://localhost:3000/products";
+
+            fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataPost),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+
+                    console.error('Error:', error);
+                });
+        }
+        var url2 = " http://localhost:3000/categories";
+        fetch(url2, {
+                method: "GET"
+            }).then(function(res) {
+                return res.json()
+            })
+            .then(function(data) {
+                console.log(data);
+                var selectdata = document.querySelector("option[name=categories]")
+                for (index = 0; index < data.length; index++) {
+                    obj = data[index]
+                    selectdata.innerHTML = obj.name
+                    console.log(obj);
+                    return
+                }
+            })
+    </script>

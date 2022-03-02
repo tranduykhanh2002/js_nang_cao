@@ -118,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="http://127.0.0.1:5500/asm_js/Frontend/login/loign-form.html" method="post">
                         <div class="form-group">
                             <label class="col-form-label">Tên đăng nhập</label>
                             <input type="text" class="form-control" placeholder=" " name="Name" required="">
@@ -137,7 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                         </div>
                         <p class="text-center dont-do mt-3">Bạn chưa có tài khoản
-                            <a href="#" data-toggle="modal" data-target="#exampleModal2">
+                            <a href="./login/register.js" data-toggle="modal" data-target="#exampleModal2">
 								Đăng ký ngay</a>
                         </p>
                     </form>
@@ -257,23 +257,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</a>
                         </li>
                         <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
-                            <a class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link " href="product.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								IPhone
 							</a>
                         </li>
                         <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
-                            <a class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link " href="product.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Samsung
 							</a>
                         </li>
                         <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                            <a class="nav-link" href="about.html">Xiaomi</a>
+                            <a class="nav-link" href="product.html">Xiaomi</a>
                         </li>
                         <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                            <a class="nav-link" href="product.html">Tin tức</a>
+                            <a class="nav-link" href="product.html">Sản phẩm</a>
                         </li>
                         <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
-                            <a class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link " href="http://127.0.0.1:5500/asm_js/Frontend/checkout.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Giỏ hàng
 							</a>
                         </li>
@@ -936,9 +936,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 );
             });
         </script>
-        <!-- //nav smooth scroll -->
-
-        <!-- popup modal (for location)-->
         <script src="js/jquery.magnific-popup.js"></script>
         <script>
             $(document).ready(function() {
@@ -956,20 +953,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             });
         </script>
-        <!-- //popup modal (for location)-->
 
         <!-- cart-js -->
         <script src="js/minicart.js"></script>
         <script>
-            paypals.minicarts.render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
-
+            paypals.minicarts.render();
             paypals.minicarts.cart.on('checkout', function(evt) {
                 var items = this.items(),
                     len = items.length,
                     total = 0,
                     i;
-
-                // Count the number of each item in the cart
                 for (i = 0; i < len; i++) {
                     total += items[i].get('quantity');
                 }
@@ -980,9 +973,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 }
             });
         </script>
-        <!-- //cart-js -->
-
-        <!-- password-script -->
         <script>
             window.onload = function() {
                 document.getElementById("password1").onchange = validatePassword;
@@ -996,20 +986,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     document.getElementById("password2").setCustomValidity("Passwords Don't Match");
                 else
                     document.getElementById("password2").setCustomValidity('');
-                //empty string means no validation error
             }
         </script>
-        <!-- //password-script -->
 
-        <!-- scroll seller -->
         <script src="js/scroll.js"></script>
-        <!-- //scroll seller -->
 
-        <!-- smoothscroll -->
         <script src="js/SmoothScroll.min.js"></script>
-        <!-- //smoothscroll -->
-
-        <!-- start-smooth-scrolling -->
         <script src="js/move-top.js"></script>
         <script src="js/easing.js"></script>
         <script>
@@ -1023,31 +1005,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
             });
         </script>
-        <!-- //end-smooth-scrolling -->
-
-        <!-- smooth-scrolling-of-move-up -->
         <script>
             $(document).ready(function() {
-                /*
-                var defaults = {
-                	containerID: 'toTop', // fading element id
-                	containerHoverID: 'toTopHover', // fading element hover id
-                	scrollSpeed: 1200,
-                	easingType: 'linear' 
-                };
-                */
                 $().UItoTop({
                     easingType: 'easeOutQuart'
                 });
 
             });
         </script>
-        <!-- //smooth-scrolling-of-move-up -->
-
-        <!-- for bootstrap working -->
         <script src="js/bootstrap.js"></script>
-        <!-- //for bootstrap working -->
-        <!-- //js-files -->
 </body>
 
 </html>

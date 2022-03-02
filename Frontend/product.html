@@ -1172,20 +1172,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             });
         </script>
-        <!-- //popup modal (for location)-->
-
         <!-- cart-js -->
         <script src="js/minicart.js"></script>
         <script>
-            paypals.minicarts.render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
+            paypals.minicarts.render();
 
             paypals.minicarts.cart.on('checkout', function(evt) {
                 var items = this.items(),
                     len = items.length,
                     total = 0,
                     i;
-
-                // Count the number of each item in the cart
                 for (i = 0; i < len; i++) {
                     total += items[i].get('quantity');
                 }
@@ -1197,8 +1193,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             });
         </script>
         <!-- //cart-js -->
-
-        <!-- password-script -->
         <script>
             window.onload = function() {
                 document.getElementById("password1").onchange = validatePassword;
@@ -1212,16 +1206,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     document.getElementById("password2").setCustomValidity("Passwords Don't Match");
                 else
                     document.getElementById("password2").setCustomValidity('');
-                //empty string means no validation error
             }
         </script>
-        <!-- //password-script -->
-
-        <!-- smoothscroll -->
         <script src="js/SmoothScroll.min.js"></script>
-        <!-- //smoothscroll -->
-
-        <!-- start-smooth-scrolling -->
         <script src="js/move-top.js"></script>
         <script src="js/easing.js"></script>
         <script>
@@ -1235,32 +1222,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
             });
         </script>
-        <!-- //end-smooth-scrolling -->
-
-        <!-- smooth-scrolling-of-move-up -->
         <script>
             $(document).ready(function() {
-                /*
-                var defaults = {
-                	containerID: 'toTop', // fading element id
-                	containerHoverID: 'toTopHover', // fading element hover id
-                	scrollSpeed: 1200,
-                	easingType: 'linear' 
-                };
-                */
                 $().UItoTop({
                     easingType: 'easeOutQuart'
                 });
 
             });
         </script>
-        <!-- //smooth-scrolling-of-move-up -->
-
-        <!-- for bootstrap working -->
         <script src="js/bootstrap.js"></script>
-        <!-- //for bootstrap working -->
-        <!-- //js-files -->
-
 </body>
 
 </html>
