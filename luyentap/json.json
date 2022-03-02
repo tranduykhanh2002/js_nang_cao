@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "name": "Tran Duy Khanh",
+      "email": "hm@gmail.com",
+      "status": "Admin",
+      "id": 1,
+      "username": "undefined",
+      "fullname": "undefined"
+    },
+    {
+      "name": "Khánh Tran",
+      "email": "khanh@gmail.com",
+      "status": "Member",
+      "id": 7
+    },
+    {
+      "name": "demo",
+      "email": "khanh@gmail.com",
+      "status": "Author",
+      "id": 8
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Admin"
+    },
+    {
+      "id": 1,
+      "name": "Member"
+    },
+    {
+      "id": 1,
+      "name": "Author"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="">
+        <label for="">Name</label><br>
+        <input type="text" name="Name" id="Name"><br>
+        <label for="">Email</label><br>
+        <input type="email" name="Email" id="Email"><br>
+        <label for="">Status</label><br>
+        <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example" name="status" id="status">
+            <option name="status" value="Ẩn">Ẩn</option>
+            <option name="status" value="Hiện">Hiện</option>
+        </select><br>
+        <!-- <input type="text" name="Status"><br> -->
+        <button onclick="add()" type="button">Add</button><br>
+        <h1 style="color: red;" name="errMsg"></h1>
+        <h1 style="color: rgb(20, 231, 83);" name="susccesrMsg"></h1>
+
+    </div>
+
+
+    <script>
+        function add() {
+            var name = document.querySelector("input[name=Name]").value
+            var email = document.querySelector("input[name=Email]").value
+            var status = document.querySelector("select[name=status]").value
+            var errMsg = document.querySelector("h1[name=errMsg]")
+            var susccesrMsg = document.querySelector("h1[name=susccesrMsg]")
+            if (name.length == '') {
+                errMsg.innerHTML = "Tên không được để trống"
+                return false
+            }
+            if (email.length == '') {
+                errMsg.innerHTML = "Email không được để trống"
+                return false
+            } else {
+                var data = {
+                    name: name,
+                    email: email,
+                    status: status
+                }
+                console.log(data);
+                var url = "http://localhost:3000/users"
+                fetch(url, {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        susccesrMsg.innerHTML = "Thêm mới thành công"
+                    })
+                    .catch((err) => {
+                        susccesrMsg.innerHTML = "Thêm mới thất bại"
+                    })
+            }
+        }
+
+        // var urlRole = 'http://localhost:3000/roles'
+        // fetch(urlRole, {
+        //         method: "GET"
+        //     })
+        //     .then(function(response) {
+        //         return response.json()
+        //     })
+        //     .then(function(data) {
+        //         var outputRole = document.querySelector("option[name=status]")
+        //         for (let index = 0; index < data.length; index++) {
+        //             const element = data[index];
+        //             option = document.createElement('option')
+        //             option.appendChild(element.name)
+        //             outputRole.appendChild(option)
+        //         }
+        //     })
+    </script>
+</body>
+
+</html>
